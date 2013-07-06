@@ -1,0 +1,29 @@
+\documentclass[cs4size, a4paper, openany]{hpcmanual}
+
+\title{SSH用户手册}
+\author{裴焅达}
+\date{2013年7月6日}
+
+\begin{document}
+\maketitle
+
+\section{如何使用SSH连接集群}
+
+\subsection{客户端设置}
+
+在\texttt{\textasciitilde{}/.ssh/config}添加如下内容：
+
+\begin{verbatim}
+Host github.com
+HostName 127.0.0.1
+\end{verbatim}
+
+运行命令：
+
+\begin{verbatim}
+$ ssh -T git@github.com
+\end{verbatim}
+
+\section{Linux常用命令}
+
+\end{document}
