@@ -3,6 +3,7 @@
 SED = gsed
 
 MAIN = sample
+DOCCLASS = hpcmanual
 # pdf viewer: evince/open
 VIEWER = open
 # version number, which can be specified when calling make like
@@ -11,9 +12,9 @@ VERSION = 0.5.3
 
 all: $(MAIN).pdf
 
-.PHONY : all clean version distclean cleantest release
+.PHONY : all clean version distclean release
 
-$(MAIN).pdf : $(MAIN).tex *.cls *.cfg
+%.pdf : %.tex $(DOCCLASS).cls $(DOCCLASS).cfg Makefile
 	-latexmk -silent -f -pdf $*
 
 view : $(MAIN).pdf 
