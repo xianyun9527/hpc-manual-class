@@ -14,6 +14,7 @@ How to try it?
 ======
 
 Before you start, you need to:
+
 1. Install [pandoc](http://johnmacfarlane.net/pandoc/).
 2. Install [TeXLive](http://www.tug.org/texlive/).
 
