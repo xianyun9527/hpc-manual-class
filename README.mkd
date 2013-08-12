@@ -1,0 +1,45 @@
+What's this?
+======
+
+```hpc-manual-class``` is a mini project to illustrate the power of [Pandoc](http://johnmacfarlane.net/pandoc) and [TeXLive](http://www.tug.org/texlive/) in document preparing.
+
+How does it work?
+=====
+
+1. Write your documents in Markdown (```*.mkd```).
+2. Process your Markdown source files with ```pandoc```, which will combine ```*.mkd``` and pandoc latex templates to generate ```*.tex``` source files.
+3. Compile your ```*.tex``` files with ```xelatex``` to generate the final PDF files. 
+
+How to try it?
+======
+
+Before you start, you need to:
+1. Install [pandoc](http://johnmacfarlane.net/pandoc/).
+2. Install [TeXLive](http://www.tug.org/texlive/).
+
+Then, type ```make clean; make``` to see the output file ```sample.pdf```.
+
+	$ make clean; make
+
+Files in this project
+=====
+
+Please don't panic when seeing so many different kinds of files. Usually, the only file you should modify is ```sample.mkd```. It is totally human-readable.
+
+* ```sample.mkd```: the Markdown source file.
+* ```sample.pdf```: the output PDF file.
+* ```sample.wiki```: the output wiki file.
+* ```hpcmanual.latex```: A pandoc template for generating TeX files.
+* ```hpcmanual.cls``` and ```hpcmanual.cfg```: LaTeX document class and configuration for ```hpcmanual```.
+
+TODO
+======
+* pandoc --data-dir=DIRECTORY option
+* pandoc --normalize
+* pandoc --indented-code-calsses
+* pandoc --include-before-body
+* pandoc --reference-links
+* pandoc --listings
+* pandoc --incremental
+* pandoc --bibliography=bibdb
+* Math Rendering in HTML
