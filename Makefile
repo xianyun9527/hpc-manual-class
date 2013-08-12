@@ -3,15 +3,17 @@
 SED := gsed
 
 MAIN 	:= sample
+MAIN_EN	:= sample_en
 DOCCLASS := hpcmanual
 LATEX_OPT := -xelatex -f
+PANDOC_OPT := -f markdown -t latex --template=$(DOCCLASS).latex --toc --listings --smart --standalone
 # pdf viewer: evince/open
 VIEWER = open
 # version number, which can be specified when calling make like
 # make VERSION="0.5.2"
 VERSION = 0.5.3
 
-all: $(MAIN).pdf
+all: $(MAIN).pdf $(MAIN_EN).pdf
 
 .PHONY : all clean version distclean release
 
@@ -19,7 +21,7 @@ all: $(MAIN).pdf
 	-latexmk $(LATEX_OPT) $*
 
 %.tex : $(DOCCLASS).latex %.mkd Makefile
-	@pandoc -f markdown -t latex --template=$(DOCCLASS).latex --toc -s $*.mkd > $@
+	@pandoc $(PANDOC_OPT) $*.mkd -o $@
 
 view : $(MAIN).pdf 
 	$(VIEWER) $<
@@ -31,3 +33,13 @@ clean :
 distclean : clean
 	-@rm -f *.pdf
 
+# TODO
+## pandoc --data-dir=DIRECTORY option
+## pandoc --normalize
+## pandoc --indented-code-calsses
+## pandoc --include-before-body
+## pandoc --reference-links
+## pandoc --listings
+## pandoc --incremental
+## pandoc --bibliography=bibdb
+## Math Rendering in HTML
