@@ -35,7 +35,7 @@
 \addtolength{\voffset}{-0.5cm}
 
 %% Hyperref
-\usepackage[setpagesize=false, % page size defined by xetex
+\RequirePackage[setpagesize=false, % page size defined by xetex
             unicode=false, % unicode breaks when used with xetex
             xetex]{hyperref}
 \hypersetup{breaklinks=true,
@@ -48,6 +48,8 @@
             pdfborder={0 0 0}}
 \urlstyle{same}  % don't use monospace font for urls
 
+%% Listings
+\RequirePackage{listings}
 
 %% Longtable
 \RequirePackage{longtable}
