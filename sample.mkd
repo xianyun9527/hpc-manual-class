@@ -162,6 +162,17 @@ Table: 在源文件中使用网格线绘制的表格(表格标题在表格之前
 
 	<!-- 这段内容，需要注释 -->
 
+### 插入代码
+
+	/* Hello World program */
+	
+	#include<stdio.h>
+	
+	main()
+	{
+		printf("Hello World");
+	}
+
 ### 超链接和自动链接
 
 一个典型的[链接](http://www.google.com)，和自动生成的链接<weijianwen@gmail.com>。

@@ -323,6 +323,16 @@
 将需要注释的内容用<code>&lt;!--</code>和<code>--&gt;</code>包围，如下所示。
 
 <pre>&lt;!-- 这段内容，需要注释 --&gt;</pre>
+=== 插入代码 ===
+
+<pre>/* Hello World program */
+
+#include&lt;stdio.h&gt;
+
+main()
+{
+    printf(&quot;Hello World&quot;);
+}</pre>
 === 超链接和自动链接 ===
 
 一个典型的[http://www.google.com 链接]，和自动生成的链接[mailto:weijianwen@gmail.com weijianwen@gmail.com]。

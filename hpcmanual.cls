@@ -21,6 +21,9 @@
 \RequirePackage{fontspec}
 \setmainfont{TeX Gyre Termes}
 
+%% xcolor
+\RequirePackage[dvipsnames]{xcolor}
+
 %% Page Layout
 \oddsidemargin 1.5 true cm
 \if@twoside
@@ -50,6 +53,34 @@
 
 %% Listings
 \RequirePackage{listings}
+\lstset{tabsize=4, %
+  frame=shadowbox, %把代码用带有阴影的框圈起来
+  commentstyle=\color{lightgray},%浅灰色的注释
+  rulesepcolor=\color{cyan},%代码块边框为淡青色
+  keywordstyle=\color{blue}\bfseries, %代码关键字的颜色为蓝色，粗体
+  showstringspaces=false,%不显示代码字符串中间的空格标记
+  showspaces=false, %
+  stringstyle=\ttfamily, % 代码字符串的特殊格式
+  keepspaces=true, %
+  breakindent=22pt, %
+  % numbers=left,%左侧显示行号
+  % stepnumber=1,%
+  % numberstyle=\tiny, %行号字体用小号
+  basicstyle=\footnotesize\ttfamily, %
+  flexiblecolumns=true, %
+  % breaklines=true, %对过长的代码自动换行
+  breakautoindent=true,%
+  breakindent=4em, %
+  aboveskip=1em, %代码块边框
+  fontadjust,
+  captionpos=t,
+  framextopmargin=2pt,framexbottommargin=2pt,abovecaptionskip=-3pt,belowcaptionskip=3pt,
+  xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
+  texcl=true,
+  % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
+  extendedchars=false,columns=flexible,mathescape=true
+  numbersep=-1em
+}
 
 %% Longtable
 \RequirePackage{longtable}
