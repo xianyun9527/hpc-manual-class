@@ -13,7 +13,7 @@ VIEWER = open
 # make VERSION="0.5.2"
 VERSION = 0.5.3
 
-all: $(MAIN).pdf $(MAIN_EN).pdf
+all: $(MAIN).pdf 
 
 .PHONY : all clean version distclean release
 
