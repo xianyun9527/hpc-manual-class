@@ -333,6 +333,18 @@ main()
 {
     printf(&quot;Hello World&quot;);
 }</pre>
+=== 一段来自终端的代码 ===
+
+<pre>$ping 8.8.8.8 
+PING 8.8.8.8 (8.8.8.8): 56 data bytes
+64 bytes from 8.8.8.8: icmp_seq=0 ttl=49 time=214.782 ms
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=49 time=214.832 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=49 time=215.212 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=49 time=215.320 ms
+^C
+--- 8.8.8.8 ping statistics ---
+4 packets transmitted, 4 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 214.782/215.036/215.320/0.233 ms</pre>
 === 超链接和自动链接 ===
 
 一个典型的[http://www.google.com 链接]，和自动生成的链接[mailto:weijianwen@gmail.com weijianwen@gmail.com]。

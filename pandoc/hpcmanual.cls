@@ -78,7 +78,7 @@
   xleftmargin=4em,xrightmargin=4em, % 设定listing左右的空白
   texcl=true,
   % 设定中文冲突，断行，列模式，数学环境输入，listing数字的样式
-  extendedchars=false,columns=flexible,mathescape=true
+  extendedchars=false,columns=flexible,mathescape=false,
   numbersep=-1em
 }
 
