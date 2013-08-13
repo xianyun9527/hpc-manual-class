@@ -30,8 +30,8 @@ Please don't panic when seeing so many different kinds of files. Usually, the on
 * ```sample.mkd```: the Markdown source file.
 * ```sample.pdf```: the output PDF file.
 * ```sample.wiki```: the output wiki file.
-* ```hpcmanual.latex```: A pandoc template for generating TeX files.
-* ```hpcmanual.cls``` and ```hpcmanual.cfg```: LaTeX document class and configuration for ```hpcmanual```.
+* ```pandoc/hpcmanual.latex```: A pandoc template for generating TeX files.
+* ```pandoc/hpcmanual.cls``` and ```pandoc/hpcmanual.cfg```: LaTeX document class and configuration for ```hpcmanual```.
 
 TODO
 ======

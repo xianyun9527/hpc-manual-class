@@ -6,6 +6,7 @@ MAIN 	:= sample
 MAIN_EN	:= sample_en
 DOCCLASS := hpcmanual
 LATEX_OPT := -xelatex -f
+PANDOC_DIR := pandoc
 PANDOC_TEX := -f markdown -t latex --template=$(DOCCLASS).latex --toc --listings --smart --standalone
 PANDOC_WIKI := -f markdown -t mediawiki --smart --standalone
 # pdf viewer: evince/open
@@ -16,7 +17,7 @@ VERSION = 0.5.3
 
 all: $(MAIN).pdf $(MAIN).wiki
 
-.PHONY : all clean version distclean release
+.PHONY : all clean version 
 
 %.pdf : %.tex $(DOCCLASS).cls $(DOCCLASS).cfg Makefile
 	-latexmk $(LATEX_OPT) $*
@@ -27,23 +28,13 @@ all: $(MAIN).pdf $(MAIN).wiki
 %.tex : $(DOCCLASS).latex %.mkd Makefile
 	@pandoc $(PANDOC_TEX) $*.mkd -o $@
 
+$(DOCCLASS).% :
+	cp $(PANDOC_DIR)/$@ .
+
 view : $(MAIN).pdf 
 	$(VIEWER) $<
 
 clean :
-	latexmk -C
-#	-@rm *.tex *.toc *.aux *.fls *.fdb_latexmk
+	-@latexmk -C
+	-@rm *.tex *.toc *.aux *.fls *.fdb_latexmk *.out
 
-distclean : clean
-	-@rm -f *.pdf
-
-# TODO
-## pandoc --data-dir=DIRECTORY option
-## pandoc --normalize
-## pandoc --indented-code-calsses
-## pandoc --include-before-body
-## pandoc --reference-links
-## pandoc --listings
-## pandoc --incremental
-## pandoc --bibliography=bibdb
-## Math Rendering in HTML
