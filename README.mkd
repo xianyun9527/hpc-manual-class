@@ -18,9 +18,10 @@ Before you start, you need to:
 1. Install [pandoc](http://johnmacfarlane.net/pandoc/).
 2. Install [TeXLive](http://www.tug.org/texlive/).
 
-Then, type ```make clean; make``` to see the output file ```sample.pdf```.
-
-	$ make clean; make
+Then, write something in ```sample.mkd``` and type ```make``` to see the output file ```sample.pdf```.
+	
+	$ EDIT sample.mkd
+	$ make
 
 Files in this project
 =====
@@ -35,7 +36,6 @@ Please don't panic when seeing so many different kinds of files. Usually, the on
 
 TODO
 ======
-* pandoc --data-dir=DIRECTORY option
 * pandoc --normalize
 * pandoc --indented-code-calsses
 * pandoc --include-before-body

@@ -5,7 +5,7 @@ SED := gsed
 MAIN 	:= sample
 MAIN_EN	:= sample_en
 DOCCLASS := hpcmanual
-LATEX_OPT := -xelatex -f
+LATEX_OPT := -gg -xelatex -f
 PANDOC_DIR := pandoc
 PANDOC_TEX := -f markdown -t latex --template=$(DOCCLASS).latex --toc --listings --smart --standalone
 PANDOC_WIKI := -f markdown -t mediawiki --smart --standalone
@@ -17,7 +17,8 @@ VERSION = 0.5.3
 
 all: $(MAIN).pdf $(MAIN).wiki
 
-.PHONY : all clean version 
+.PHONY : all clean disclean version 
+.PRECIOUS : %.tex
 
 %.pdf : %.tex $(DOCCLASS).cls $(DOCCLASS).cfg Makefile
 	-latexmk $(LATEX_OPT) $*
@@ -29,12 +30,15 @@ all: $(MAIN).pdf $(MAIN).wiki
 	@pandoc $(PANDOC_TEX) $*.mkd -o $@
 
 $(DOCCLASS).% :
-	cp $(PANDOC_DIR)/$@ .
+	@cp $(PANDOC_DIR)/$@ .
 
 view : $(MAIN).pdf 
 	$(VIEWER) $<
 
 clean :
-	-@latexmk -C
+	-@latexmk -f -c $(MAIN)
 	-@rm *.tex *.toc *.aux *.fls *.fdb_latexmk *.out
+
+distclean : clean
+	-@latexmk -f -C $(MAIN)
 
