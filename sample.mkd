@@ -164,6 +164,8 @@ Table: 在源文件中使用网格线绘制的表格(表格标题在表格之前
 
 ### 插入代码
 
+一段C代码：
+
 	/* Hello World program */
 	
 	#include<stdio.h>
@@ -172,6 +174,52 @@ Table: 在源文件中使用网格线绘制的表格(表格标题在表格之前
 	{
 		printf("Hello World");
 	}
+
+VLAN和IP信息：
+
+	X650# show vlan
+	---------------------------------------------------------------------------------
+	Name            VID  Protocol Addr       Flags           Proto  Ports  Virtual   
+	                                                                Active router
+	                                                                /Total
+	---------------------------------------------------------------------------------
+	Default         1    --------------------------------T-- ANY    9 /18  VR-Default 
+	Mgmt            4095 ----------------------------------- ANY    0 /1   VR-Mgmt    
+	-----------------------------------------------------------------------------------
+	Flags : (B) BFD Enabled, (c) 802.1ad customer VLAN, (C) EAPS Control VLAN,
+	        (d) NetLogin Dynamically created VLAN, (D) VLAN Admin Disabled,
+	        (e) CES Configured, (E) ESRP Enabled, (f) IP Forwarding Enabled,
+	        (F) Learning Disabled, (i) ISIS Enabled, (I) Inter-Switch Connection VLAN for MLAG,
+	        (k) PTP Configured, (l) MPLS Enabled, (L) Loopback Enabled,
+	        (m) IPmc Forwarding Enabled, (M) Translation Member VLAN or Subscriber VLAN,
+	        (n) IP Multinetting Enabled, (N) Network Login VLAN, (o) OSPF Enabled,
+	        (O) Flooding Disabled, (p) PIM Enabled, (P) EAPS protected VLAN,
+	        (r) RIP Enabled, (R) Sub-VLAN IP Range Configured,
+	        (s) Sub-VLAN, (S) Super-VLAN, (t) Translation VLAN or Network VLAN,
+	        (T) Member of STP Domain, (v) VRRP Enabled, (V) VPLS Enabled, (W) VPWS Enabled
+	
+	Total number of VLAN(s) : 5
+
+链路聚合信息：
+
+	X650# show sharing 
+	Load Sharing Monitor
+	Config    Current    Agg       Ld Share    Ld Share  Agg   Link    Link Up
+	Master    Master     Control   Algorithm   Group     Mbr   State   Transitions
+	==============================================================================
+	    17     17        Static    L2          17         Y      A        1
+	                               L2          18         Y      A        1
+	==============================================================================
+	Link State: A-Active, D-Disabled, R-Ready, NP-Port not present, L-Loopback
+	Load Sharing Algorithm: (L2) Layer 2 address based, (L3) Layer 3 address based
+	                        (L3_L4) Layer 3 address and Layer 4 port based
+	                        (custom) User-selected address-based configuration
+	Custom Algorithm Configuration: ipv4 L3-and-L4, xor
+	Number of load sharing trunks: 9
+
+最后，保存配置信息。
+
+	X650# save	
 
 ### 一段来自终端的代码
 

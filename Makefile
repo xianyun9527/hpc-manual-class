@@ -17,7 +17,7 @@ VERSION = 0.5.3
 
 all: $(MAIN).pdf $(MAIN).wiki
 
-.PHONY : all clean disclean version 
+.PHONY : all clean disclean version release
 .PRECIOUS : %.tex
 
 %.pdf : %.tex $(DOCCLASS).cls $(DOCCLASS).cfg Makefile
@@ -42,3 +42,6 @@ clean :
 distclean : clean
 	-@latexmk -f -C $(MAIN)
 
+release :
+	git push gitlab
+	git push github
